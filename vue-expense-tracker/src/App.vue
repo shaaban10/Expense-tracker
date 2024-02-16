@@ -6,7 +6,7 @@
   <div class="inc-exp-container">
     <IncomeExpensence :income="+income" :expenses="+expenses"/>
   </div>
-  <TransactionsList :transactions="transactions" />
+  <TransactionsList :transactions="transactions" @itemdeleted="handletransactiondeletted" />
   <div class="form-control">
 <AddTransactions @transactionsubmitted="handletransactionsubmitted" />
     <div class="form-control">
@@ -63,5 +63,10 @@ toast.success('Transaction added');
 }
 const generateUniqueId=()=>{
   return Math.floor(Math.random()*1000000);
+}
+const handletransactiondeletted= (id)=>{
+transactions.value  = transactions.value.filter((transactions)=>
+transactions.id !==id);
+toast.success('transaction deleted')
 }
 </script>

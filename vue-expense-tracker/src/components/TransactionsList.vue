@@ -6,6 +6,10 @@ const props = defineProps({
     required: true,
   },
 })
+const emit = defineEmits(['itemdeleted'])
+const deleteTransaction=(id)=>{
+emit('itemdeleted',id);
+}
 </script>
 <template>
 <h3>History</h3>
