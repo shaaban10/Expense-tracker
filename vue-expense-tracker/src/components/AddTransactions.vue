@@ -32,7 +32,7 @@ const toast = useToast();
 
 
 const onSubmit = ()=>{
-  if (!text.value || !amount.value) {
+  if (!text.value || !amount.value ) {
     toast.error('Both field must be filled')
   }
   const transactionData = {

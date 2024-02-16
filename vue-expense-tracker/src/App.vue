@@ -61,8 +61,10 @@ transactions.value.push({
   text: transactionData.text,
   amount: transactionData.amount,
 });
-saveTransactionsToLocalStorage()
-toast.success('Transaction added'); 
+saveTransactionsToLocalStorage();
+if (text.value || amount.value ) {
+  toast.success('Transaction added');   }
+
 }
 const generateUniqueId=()=>{
   return Math.floor(Math.random()*1000000);
@@ -70,6 +72,7 @@ const generateUniqueId=()=>{
 const handletransactiondeletted= (id)=>{
 transactions.value  = transactions.value.filter((transactions)=>
 transactions.id !==id);
+saveTransactionsToLocalStorage();
 toast.success('transaction deleted')
 }
 //save to localStorage
